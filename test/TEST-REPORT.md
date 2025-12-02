@@ -38,7 +38,7 @@
 - refundProduct: Fixed at 28,593 gas across 7 calls
 - setRefundPolicyNumber: Fixed at 27,085 gas (1 call) - Cheapest operations
 - updateProductQuantity: Fixed at 36,973 gas (2 calls)
-####Store Contract Deployment:
+#### Store Contract Deployment:
 - Gas Cost: 2,115,110 gas
 - % of limit: 7.1% of the 30M gas block limit
 This is the one-time cost to deploy the contract to the blockchain.
