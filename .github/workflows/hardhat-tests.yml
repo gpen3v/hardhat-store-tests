@@ -1,0 +1,37 @@
+name: Hardhat Tests CI
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 08:00 Bulgarian time
+    - cron: '0 18 * * *'  # 20:00 Bulgarian time
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 18.x, 20.x ]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile contracts
+        run: npx hardhat compile
+
+      - name: Run Hardhat tests
+        run: npx hardhat test
+
+      - name: Display test results
+        if: always()
+        run: echo "Tests completed. Check logs above for details."
