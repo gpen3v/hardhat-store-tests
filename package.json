@@ -1,0 +1,24 @@
+{
+  "name": "qa-assuring-ethereum-okexdv",
+  "version": "1.0.0",
+  "description": "Create a test based on Hardhat for testing contract deployment and interaction.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://limechain-wfbiyz@git.codesubmit.io/limechain/qa-assuring-ethereum-okexdv"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "hardhat": "^2.27.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0"
+  }
+}
