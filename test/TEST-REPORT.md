@@ -20,6 +20,7 @@
  - Test scenarios covered - 27.
  - Passing test scenarios - 25.
  - Failing test scenarios - 2. The 2 failing cases are listed in the following "Defects" section.
+ - Tests are running on CI in GitHub Actions in a public repository - https://github.com/gpen3v/hardhat-store-tests/actions
 
 ## Defects
 | Defect ID | Test scenario                                                                  | Description |
@@ -32,39 +33,12 @@
 
 ## Gas usage report
 
-···················································································································
-|  Solidity and Network Configuration                                                                             │
-······························|·················|···············|·················|································
-|  Solidity: 0.8.28           ·  Optim: false   ·  Runs: 200    ·  viaIR: false   ·     Block: 30,000,000 gas     │
-······························|·················|···············|·················|································
-|  Methods                                                                                                        │
-······························|·················|···············|·················|················|···············
-|  Contracts / Methods        ·  Min            ·  Max          ·  Avg            ·  # calls       ·  usd (avg)   │
-······························|·················|···············|·················|················|···············
-|  Store                      ·                                                                                   │
-······························|·················|···············|·················|················|···············
-|      addProduct             ·         43,340  ·      148,077  ·        143,880  ·            41  ·           -  │
-······························|·················|···············|·················|················|···············
-|      buyProduct             ·         81,245  ·       98,357  ·         94,280  ·            18  ·           -  │
-······························|·················|···············|·················|················|···············
-|      refundProduct          ·              -  ·            -  ·         28,593  ·             7  ·           -  │
-······························|·················|···············|·················|················|···············
-|      setRefundPolicyNumber  ·              -  ·            -  ·         27,085  ·             1  ·           -  │
-······························|·················|···············|·················|················|···············
-|      updateProductQuantity  ·              -  ·            -  ·         36,973  ·             2  ·           -  │
-······························|·················|···············|·················|················|···············
-|  Deployments                                  ·                                 ·  % of limit    ·              │
-······························|·················|···············|·················|················|···············
-|  Store                      ·              -  ·            -  ·      2,115,110  ·         7.1 %  ·           -  │
-······························|·················|···············|·················|················|···············
-|  Key                                                                                                            │
-···················································································································
-|  ◯  Execution gas for this method does not include intrinsic gas overhead                                       │
-···················································································································
-|  △  Cost was non-zero but below the precision setting for the currency display (see options)                    │
-···················································································································
-|  Toolchain:  hardhat                                                                                            │
-···················································································································
-
-- Most expensive operation: addProduct (avg 143,880 gas)
-- Cheapest operations: Administrative functions like setRefundPolicyNumber (27,085 gas)
+- addProduct: 43,340 (min) to 148,077 (max) gas, averaging 143,880 gas across 41 calls - Most expensive operation
+- buyProduct: 81,245 to 98,357 gas, averaging 94,280 across 18 calls
+- refundProduct: Fixed at 28,593 gas across 7 calls
+- setRefundPolicyNumber: Fixed at 27,085 gas (1 call) - Cheapest operations
+- updateProductQuantity: Fixed at 36,973 gas (2 calls)
+####Store Contract Deployment:
+- Gas Cost: 2,115,110 gas
+- % of limit: 7.1% of the 30M gas block limit
+This is the one-time cost to deploy the contract to the blockchain.
