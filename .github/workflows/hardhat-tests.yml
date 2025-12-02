@@ -1,6 +1,7 @@
 name: Hardhat Tests CI
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 6 * * *'   # 08:00 Bulgarian time
     - cron: '0 18 * * *'  # 20:00 Bulgarian time
